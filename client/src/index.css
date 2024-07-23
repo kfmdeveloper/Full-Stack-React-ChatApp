@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Assuming other Tailwind CSS and base styles */
+body {
+    background: url('../bgnew.avif');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+        overflow: hidden;
+}
+
+#sidebar {
+    padding-right: 10px;
+    border-right: 1px solid gray;
+}
+ 

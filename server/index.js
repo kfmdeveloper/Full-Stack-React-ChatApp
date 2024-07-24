@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173", // Allow your frontend URL
+    origin: "https://full-stack-react-chat-app-frontend-psi.vercel.app", // Allow your frontend URL
     credentials: true,
   })
 );

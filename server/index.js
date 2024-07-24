@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "https://full-stack-react-chat-app-frontend-psi.vercel.app", // Allow your frontend URL
+    origin: "https://khalidfarooqprocoder.netlify.app", // Allow your frontend URL
     credentials: true,
   })
 );

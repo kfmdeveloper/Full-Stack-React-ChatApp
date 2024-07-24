@@ -27,6 +27,7 @@ const corsOptions = {
   allowedHeaders: "Origin,X-Requested-With,Content-Type,Accept,Authorization",
   credentials: true // Allow credentials
 };
+app.use(cors(corsOptions));
 //Routes
 app.use("/api/v1/user", router);
 app.use("/api/v1/message", MsgRouter);

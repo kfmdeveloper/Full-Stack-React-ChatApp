@@ -12,6 +12,7 @@ const MsgRouter = require("./routes/messageRoute");
 app.use(express.urlencoded({ extended: true })); 
 app.use(express.json());
 app.use(cookieParser());
+// CORS Configuration
 const allowedOrigins = ['https://full-stack-react-chat-app-frontendpart.vercel.app'];
 
 const corsOptions = {
@@ -24,8 +25,7 @@ const corsOptions = {
   },
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   allowedHeaders: "Origin,X-Requested-With,Content-Type,Accept,Authorization",
-  credentials: true, // Allow credentials
-  preflightContinue: false,
+  credentials: true,
   optionsSuccessStatus: 204
 };
 

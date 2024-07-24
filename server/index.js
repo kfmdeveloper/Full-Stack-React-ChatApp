@@ -9,7 +9,7 @@ const db = require("./config/DbConnection");
 const MsgRouter = require("./routes/messageRoute");
 
 //Middlewares
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true })); 
 app.use(express.json());
 app.use(cookieParser());
 app.use(

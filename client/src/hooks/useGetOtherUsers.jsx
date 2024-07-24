@@ -7,7 +7,7 @@ const useGetOtherUsers = () => {
 
   useEffect(() => {
     const fetchOtherUsers = async () => {
-      const otherusers = import.meta.env.VITE_GETOTHERUSERS_API;
+      const otherusers = "https://full-stack-react-chat-app-frontend.vercel.app/api/v1/user";
       try {
         axios.defaults.withCredentials = true;
         const res = await axios.get(otherusers);

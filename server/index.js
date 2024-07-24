@@ -12,7 +12,7 @@ const MsgRouter = require("./routes/messageRoute");
 app.use(express.urlencoded({ extended: true })); 
 app.use(express.json());
 app.use(cookieParser());
-const allowedOrigins = ['https://full-stack-react-chat-app-frontendpart.vercel.app', 'https://another-allowed-origin.com']; // Add any other allowed origins here
+const allowedOrigins = ['https://full-stack-react-chat-app-frontendpart.vercel.app'];
 
 const corsOptions = {
   origin: function (origin, callback) {
@@ -24,10 +24,9 @@ const corsOptions = {
   },
   optionsSuccessStatus: 200,
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  allowedHeaders: "Origin,X-Requested-With,Content-Type,Accept,Authorization"
+  allowedHeaders: "Origin,X-Requested-With,Content-Type,Accept,Authorization",
+  credentials: true // Allow credentials
 };
-
-app.use(cors(corsOptions));
 //Routes
 app.use("/api/v1/user", router);
 app.use("/api/v1/message", MsgRouter);

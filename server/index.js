@@ -22,12 +22,26 @@ const corsOptions = {
       callback(new Error('Not allowed by CORS'));
     }
   },
-  optionsSuccessStatus: 200,
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   allowedHeaders: "Origin,X-Requested-With,Content-Type,Accept,Authorization",
-  credentials: true // Allow credentials
+  credentials: true, // Allow credentials
+  preflightContinue: false,
+  optionsSuccessStatus: 204
 };
+
 app.use(cors(corsOptions));
+
+// Manually set CORS headers for all responses
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://full-stack-react-chat-app-frontendpart.vercel.app');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  next();
+});
+
+// Handle preflight requests
+app.options('*', cors(corsOptions));
 //Routes
 app.use("/api/v1/user", router);
 app.use("/api/v1/message", MsgRouter);

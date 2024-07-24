@@ -76,7 +76,7 @@ const SignUp = () => {
         toast.error("Passwords do not match.", toastStyle);
       } else {
         const SignIn = async () => {
-          const apiEndpoint = import.meta.env.VITE_SIGNUP_API;
+          const apiEndpoint = "https://full-stack-react-chat-app-frontend.vercel.app/api/v1/user/register";
           if (!apiEndpoint) {
             toast.error("API endpoint is not defined.", toastStyle);
             return;

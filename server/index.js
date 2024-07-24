@@ -13,20 +13,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 // CORS Configuration
-const allowedOrigins = ['https://full-stack-react-chat-app-frontendpart.vercel.app'];
+ 
 
 const corsOptions = {
-  origin: function (origin, callback) {
-    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  allowedHeaders: "Origin,X-Requested-With,Content-Type,Accept,Authorization",
-  credentials: true,
-  optionsSuccessStatus: 204
+  origion:"https://full-stack-react-chat-app-frontendpart.vercel.app", 
+  credentials: true
 };
 
 app.use(cors(corsOptions));

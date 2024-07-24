@@ -33,7 +33,7 @@ const SendInput = () => {
     } else {
       try {
         const res = await axios.post(
-          `http://localhost:8080/api/v1/message/send/${selectedUser?._id}`,
+          `https://full-stack-react-chat-app-frontend.vercel.app/api/v1/message/send/${selectedUser?._id}`,
           { message: messageInput }, // Use messageInput instead of Message
           {
             headers: {

@@ -13,14 +13,36 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 // CORS Configuration
- 
+// CORS Configuration
+const allowedOrigins = ['https://full-stack-react-chat-app-frontendpart.vercel.app'];
 
 const corsOptions = {
-  origion:"https://full-stack-react-chat-app-frontendpart.vercel.app", 
-  credentials: true
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  allowedHeaders: "Origin,X-Requested-With,Content-Type,Accept,Authorization",
+  credentials: true,
+  optionsSuccessStatus: 204
 };
 
 app.use(cors(corsOptions));
+
+// Manually set CORS headers for all responses
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://full-stack-react-chat-app-frontendpart.vercel.app');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  next();
+});
+
+// Handle preflight requests
+app.options('*', cors(corsOptions));
 
 // Manually set CORS headers for all responses
 app.use((req, res, next) => {

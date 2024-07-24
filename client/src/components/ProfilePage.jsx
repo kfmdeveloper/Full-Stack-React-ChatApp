@@ -21,7 +21,7 @@ const ProfilePage = () => {
   };
   const Logouthandler = async () => {
     try {
-      const logoutApi = import.meta.env.VITE_LOGOUT_API;
+      const logoutApi = "https://full-stack-react-chat-app-frontend.vercel.app/api/v1/user/logout";
       axios.defaults.withCredentials = true;
       const res = await axios.get(logoutApi);
       if (res.data.success) {
